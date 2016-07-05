@@ -14,7 +14,7 @@ module.exports = function (rx) {
     (d) => !d.subtype,
     (d) => d.text.match(/<(.*?)>/g)
   ]).maps([
-    (d) => d.text.match(/<.*?>/g),
+    (d) => d.text.match(/<.*?>/g)[0],
     (md) => md.match(/<(.*?)>/)[1],
     (url) => request.get(url)
   ]).filters([
