@@ -27,10 +27,18 @@ module.exports = function (rx) {
     }),
     (res) => res.messages[0]
   ]).subscribe((msg, { web, raw }) => {
-    twitter.post('statuses/update', { status: msg.text });
-    web.reactions.remove('tweet', {
-      channel: raw.item.channel,
-      timestamp: raw.item.ts
-    });
+    twitter.post('statuses/update', { status: msg.text })
+      .then(() => {
+        web.reactions.remove('tweet', {
+          channel: raw.item.channel,
+          timestamp: raw.item.ts
+        });
+      })
+      .catch(() => {
+        web.reactions.add('x', {
+          channel: raw.item.channel,
+          timestamp: raw.item.ts
+        });
+      });
   });
 };
