@@ -1,0 +1,23 @@
+{
+  "name": "slack-bots-via-rxjs",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "3846masa",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "2.13.1"
+  },
+  "dependencies": {
+    "@slack/client": "3.5.0",
+    "is-promise": "2.1.0",
+    "moment": "2.13.0",
+    "request-promise": "3.0.0",
+    "rxjs": "5.0.0-beta.9"
+  }
+}
